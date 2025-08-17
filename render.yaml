@@ -2,12 +2,11 @@ services:
   - type: web
     name: omnara-webhook-server
     runtime: python
+    pythonVersion: "3.11"
     buildCommand: pip install -r requirements.txt
     startCommand: python app.py
     envVars:
       - key: OMNARA_API_KEY
         value: B7hVKeNKPcVIL0lk
-      - key: PORT
-        value: 10000
     autoDeploy: true
     plan: free
