@@ -51,6 +51,11 @@ async def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "timestamp": datetime.utcnow().isoformat()}
 
+@app.get("/webhook")
+async def webhook_test():
+    """Test endpoint for webhook connectivity"""
+    return {"status": "webhook_ready", "message": "Webhook endpoint is ready to receive POST requests"}
+
 @app.post("/webhook")
 async def webhook_handler(request: Request, x_api_key: str = Header(None)):
     """Handle incoming webhooks"""
